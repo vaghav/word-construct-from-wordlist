@@ -17,10 +17,6 @@ public class WordListUtil {
         Set<String> wordSet = new HashSet<>(wordList);
         List<String> matched = wordSet.stream().filter(word::startsWith).collect(toList());
 
-        if (matched.isEmpty()) {
-            return false;
-        }
-
         for (String item : matched) {
             String formatted = word.replaceFirst(item, "");
             if (formatted.isEmpty() || hasElement(wordList, formatted)) {
